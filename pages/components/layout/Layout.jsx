@@ -1,27 +1,14 @@
-import React,{ useState } from 'react'
-import Header from './Header'
-import Footer from './Footer'
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
 
-const Layout = ({ children }) => {
-    const [ isOpen,setOpen ] = useState(false)
-    const toggleOpen = () => setOpen(true)
-    const toggleClose = () => setOpen(false)
-    return (
-        <div>
-            <Header isOpen={isOpen} toggleClose={toggleClose} toggleOpen={toggleOpen}/>
-            {
-                !isOpen && (
-                    <>
-                        <div>
-                            { children }
-                        </div>    
-                        <Footer />   
-                    </>
-                ) 
-            }
-
-        </div>
-    )
+export default function Layout({ children }) {
+  return (
+    <div className="min-h-screen flex flex-col bg-slate-50">
+      {/* Header index.jsx sidebare thakbe, Layout e rakhlam na sidebar control er jonno */}
+      <main className="flex-1 overflow-hidden">
+        {children}
+      </main>
+    </div>
+  );
 }
-
-export default Layout
